@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            background-color: color-mix(in srgb, blue 20%, black 50%);
+        }
+
+        .container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            width: 90px;
+            height: 45px;
+            background-color: rosybrown;
+            color: white;
+            border-radius: 30%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: scale(1.3);
+            cursor: pointer;
+            box-shadow: 0 20px 40px rgb(34, 32, 32);
+            border: 2px solid rgb(32, 110, 150);
+        }
+
+        .wrapper {
+            border-radius: 30%;
+            width: 230px;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            box-shadow: 0 20px 40px rgb(34, 32, 32);
+            height: 300px;
+        }
+
+        .container-fluid {
+            animation: 6s fadeIn;
+            margin-top: 50px;
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            0%{opacity:0};
+            1%{opacity: 1};
+        }
+        
+        a {
+            color: #ffff;
+        }
+        textarea {
+            text-decoration: solid;
+        }
+    </style>
+</head>
+<body>
+   <center> <div class="container">
+        <div class="wrapper">
+            <textarea id="UserText" maxlength="100" rows="14" cols="20" autocomplete="on" spellcheck="on"></textarea> <br>
+            <button onclick="speak()">Speak Out</button>
+        </div>
+    </div>
+    <script>
+        const text = document.getElementById('UserText').value;
+
+        function speak() {
+            const utterance = new SpeechSynthesisUtterance(text);
+
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+    <footer>
+        <center>
+        <div class="container-fluid">
+            <h4>Designed by <strong><a href="https://dannycodess.netlify.app">DannyCodes</a></strong></h4>
+        </div>
+</body>
+</html>
